@@ -3,35 +3,33 @@ const stopBtn = document.getElementById('stopBtn');
 const transcriptionDiv = document.getElementById('transcription');
 const waves = document.querySelectorAll('.wave');
 
-let recognition;
+let recognition = null;
 let isRecording = false;
-let finalTranscript = "";
+let finalTranscript = ""; // Texte final accumulé
 
 // Fonction pour animer les vagues
 function animateWave(active) {
     waves.forEach(wave => {
-        if (active) {
-            wave.style.animation = "wave-animation 1.5s infinite ease-in-out";
-        } else {
-            wave.style.animation = "none";
-        }
+        wave.style.animation = active ? "wave-animation 1.5s infinite ease-in-out" : "none";
     });
 }
 
 startBtn.addEventListener('click', () => {
+    if (isRecording) return; // Éviter les appuis multiples
+    isRecording = true;
     startBtn.disabled = true;
     stopBtn.disabled = false;
-    transcriptionDiv.textContent = '';
-    finalTranscript = "";
-    isRecording = true;
     animateWave(true);
+    
     startRecognition();
 });
 
 stopBtn.addEventListener('click', () => {
+    if (!isRecording) return; // Éviter les appuis multiples
+    isRecording = false;
     startBtn.disabled = false;
     stopBtn.disabled = true;
-    isRecording = false;
+    
     if (recognition) {
         recognition.stop();
     }
@@ -39,6 +37,11 @@ stopBtn.addEventListener('click', () => {
 });
 
 function startRecognition() {
+    if (!('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)) {
+        alert("Votre navigateur ne prend pas en charge la reconnaissance vocale.");
+        return;
+    }
+
     recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
     recognition.lang = 'fr-FR';
     recognition.interimResults = true;
@@ -46,27 +49,27 @@ function startRecognition() {
 
     recognition.onresult = (event) => {
         let interimTranscript = "";
-        let finalTranscriptPart = "";
-        
+        let newFinalTranscript = "";
+
         for (let i = event.resultIndex; i < event.results.length; ++i) {
             if (event.results[i].isFinal) {
-                finalTranscriptPart = event.results[i][0].transcript + " ";
+                newFinalTranscript += event.results[i][0].transcript + " ";
             } else {
                 interimTranscript += event.results[i][0].transcript + " ";
             }
         }
-        
-        // On met à jour le texte de transcription uniquement avec le dernier segment final
-        finalTranscript += finalTranscriptPart;
-    
-        // Afficher la transcription avec les mots finaux et intermédiaires
+
+        // Ajouter uniquement les nouvelles phrases sans duplication
+        if (newFinalTranscript.trim() && !finalTranscript.endsWith(newFinalTranscript.trim())) {
+            finalTranscript += newFinalTranscript;
+        }
+
         transcriptionDiv.textContent = finalTranscript + interimTranscript;
     };
-    
 
     recognition.onend = () => {
         if (isRecording) {
-            recognition.start();
+            recognition.start(); // Redémarrer automatiquement si l'enregistrement est actif
         }
     };
 
