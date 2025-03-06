@@ -46,15 +46,23 @@ function startRecognition() {
 
     recognition.onresult = (event) => {
         let interimTranscript = "";
+        let finalTranscriptPart = "";
+        
         for (let i = event.resultIndex; i < event.results.length; ++i) {
             if (event.results[i].isFinal) {
-                finalTranscript += event.results[i][0].transcript + " ";
+                finalTranscriptPart = event.results[i][0].transcript + " ";
             } else {
                 interimTranscript += event.results[i][0].transcript + " ";
             }
         }
+        
+        // On met à jour le texte de transcription uniquement avec le dernier segment final
+        finalTranscript += finalTranscriptPart;
+    
+        // Afficher la transcription avec les mots finaux et intermédiaires
         transcriptionDiv.textContent = finalTranscript + interimTranscript;
     };
+    
 
     recognition.onend = () => {
         if (isRecording) {
