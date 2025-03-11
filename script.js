@@ -1,11 +1,12 @@
 const startBtn = document.getElementById('startBtn');
 const stopBtn = document.getElementById('stopBtn');
+const sendBtn = document.getElementById('sendBtn');
 const transcriptionDiv = document.getElementById('transcription');
 const waves = document.querySelectorAll('.wave');
 
 let recognition = null;
 let isRecording = false;
-let finalTranscript = ""; // Texte final accumulé
+let finalTranscript = "";
 
 // Fonction pour animer les vagues
 function animateWave(active) {
@@ -14,28 +15,73 @@ function animateWave(active) {
     });
 }
 
+// Fonction pour envoyer la transcription au backend
+async function sendTranscriptionToBackend() {
+    if (!finalTranscript.trim()) {
+        alert("Aucune transcription à envoyer.");
+        return;
+    }
+
+    const data = {
+        message: finalTranscript.trim(),
+        objet: "Transcription vocale", // Optionnel, peut être modifié via une entrée utilisateur
+        entite_etatique: "Non spécifié" // Optionnel, peut être modifié si besoin
+    };
+
+    try {
+        const response = await fetch('http://localhost:5000/save_transcription', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            alert(result.message); // "Transcription sauvegardée avec succès."
+            transcriptionDiv.textContent = ""; // Effacer après succès
+            finalTranscript = "";
+            sendBtn.disabled = true; // Désactiver après envoi
+        } else {
+            alert(`Erreur : ${result.message}`);
+        }
+    } catch (error) {
+        console.error("Erreur lors de l'envoi au backend :", error);
+        alert("Erreur de connexion au serveur. Vérifiez que le backend est en marche.");
+    }
+}
+
+// Démarrer la reconnaissance vocale
 startBtn.addEventListener('click', () => {
-    if (isRecording) return; // Éviter les appuis multiples
+    if (isRecording) return;
     isRecording = true;
     startBtn.disabled = true;
     stopBtn.disabled = false;
+    sendBtn.disabled = true; // Désactiver "Envoyer" au démarrage
     animateWave(true);
-    
     startRecognition();
 });
 
+// Arrêter la reconnaissance vocale
 stopBtn.addEventListener('click', () => {
-    if (!isRecording) return; // Éviter les appuis multiples
+    if (!isRecording) return;
     isRecording = false;
     startBtn.disabled = false;
     stopBtn.disabled = true;
-    
     if (recognition) {
         recognition.stop();
     }
     animateWave(false);
+    sendBtn.disabled = finalTranscript.trim() === ""; // Activer "Envoyer" si transcription existe
 });
 
+// Envoyer la transcription au backend
+sendBtn.addEventListener('click', () => {
+    sendTranscriptionToBackend();
+});
+
+// Fonction de reconnaissance vocale
 function startRecognition() {
     if (!('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)) {
         alert("Votre navigateur ne prend pas en charge la reconnaissance vocale.");
@@ -65,6 +111,7 @@ function startRecognition() {
         }
 
         transcriptionDiv.textContent = finalTranscript + interimTranscript;
+        sendBtn.disabled = finalTranscript.trim() === ""; // Activer/désactiver "Envoyer"
     };
 
     recognition.onend = () => {

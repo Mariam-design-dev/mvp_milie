@@ -1,0 +1,315 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: #333;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+}
+
+.logo {
+  color: #FF7626;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #0d6e41d0;
+  font-size: 18px; /* Ajuste la taille du texte ici */
+  font-weight: bold; /* (Optionnel) Rend le texte plus visible */
+}
+
+.inscription-btn {
+  border: 2px solid #00C2A8;
+  border-radius: 25px;
+  padding: 5px 20px;
+  color: #0d6e41d0;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.profile-icon {
+  width: 24px;
+  height: 24px;
+  background-color: #8BC34A;
+  border-radius: 50%;
+  margin-left: 15px;
+}
+
+/* Banner */
+.banner {
+  background-color: #FF7626;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 40px;
+  font-size:larger;
+  font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  margin-bottom: 50px;
+}
+
+.hero-image img {
+  max-width: 450px; /* Taille réduite de l'image */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto
+
+}
+.hero-text {
+  width: 60%;
+  color: #FF7626;
+  font-size: 28px;
+  font-weight: bold;
+  align-items: center;
+}
+
+/* Call to Action Buttons */
+.cta-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 300px;
+  margin-bottom: 70px;
+}
+
+.about-btn {
+  background-color: #FF7626;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.concern-btn {
+  border: 2px solid #00C2A8;
+  color: #00C2A8;
+  padding: 15px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Partners Section */
+.partners {
+  text-align: center;
+  margin-bottom: 70px;
+  padding: 0 50px;
+}
+
+.partners h2 {
+  color: #FF7626;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.partners p {
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.partner-logos {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.partner-logo {
+  max-width: 150px;
+}
+
+/* Testimonials Section */
+.testimonials {
+  background-color: #F0E4E4;
+  padding: 30px 50px;
+  margin-bottom: 70px;
+}
+
+.testimonials h2 {
+  color: #FF7626;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.stars {
+  color: #FFD700;
+}
+
+.testimonial-cards {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+}
+
+.testimonial-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  min-width: 250px;
+}
+
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.testimonial-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.testimonial-info h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.testimonial-info p {
+  color: #666;
+}
+
+.testimonial-content {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Newsletter Section */
+.newsletter {
+  background-color: #E8F7F7;
+  padding: 30px 50px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.newsletter h2 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.newsletter p {
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  font-size: 14px;
+}
+
+.newsletter form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.newsletter input {
+  padding: 10px 15px;
+  width: 300px;
+  border: 1px solid #ddd;
+}
+
+.newsletter button {
+  background-color: #151B54;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  background-color: #2C3333;
+  color: white;
+  padding: 30px 50px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.footer-logo {
+  color: #FF7626;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-newsletter form {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-newsletter input {
+  padding: 8px;
+  width: 200px;
+  border: 1px solid #ddd;
+}
+
+.footer-newsletter button {
+  background-color: #4F9BFF;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #555;
+  padding-top: 20px;
+  font-size: 12px;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-legal a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-copyright {
+  color: #aaa;
+}

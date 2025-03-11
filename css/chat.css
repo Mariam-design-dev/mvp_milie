@@ -1,0 +1,476 @@
+/* Import d'une police moderne */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #fff;
+}
+
+.logo {
+    color: #FF7626;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #0d6e41d0;
+    font-size: 18px; /* Ajuste la taille du texte ici */
+      font-weight: bold; /* (Optionnel) Rend le texte plus visible */
+  }
+  
+  .inscription-btn {
+    border: 2px solid #00C2A8;
+    border-radius: 25px;
+    padding: 5px 20px;
+    color: #0d6e41d0;
+    text-decoration: none;
+    margin-left: 15px;
+  }
+
+.profile-icon {
+    width: 24px;
+    height: 24px;
+    background-color: #8BC34A;
+    border-radius: 50%;
+    margin-left: 15px;
+}
+
+/* Hero Section Styles */
+.hero {
+    background: linear-gradient(to right, rgba(230, 255, 245, 0.9), rgba(220, 255, 240, 0.8));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+.hero-content {
+    width: 50%;
+}
+
+.hero h1 {
+    color: #FF7626;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 16px;
+    max-width: 450px;
+    line-height: 1.6;
+}
+
+.hero-image {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    max-width: 300px;
+    height: auto;
+}
+
+/* Email Pitch Section Styles */
+.email-pitch {
+    text-align: center;
+    padding: 30px 20px;
+    background: linear-gradient(to bottom, #fff, #f1f1f1);
+}
+
+.email-pitch h2 {
+    color: #FF7626;
+    font-size: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Contact Form Section Styles */
+.contact-form {
+    background-color: #f5f5f5;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e8e8e8;
+}
+
+textarea {
+    height: 150px;
+    resize: none;
+}
+
+.submit-btn {
+    background-color: #FF7626;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 40px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2C3333;
+    color: white;
+    padding: 30px 50px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    color: #FF7626;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-newsletter {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-newsletter p {
+    margin-bottom: 10px;
+}
+
+.footer-newsletter form {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-newsletter input {
+    padding: 8px;
+    width: 200px;
+    background-color: white;
+}
+
+.footer-newsletter button {
+    background-color: #4F9BFF;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #555;
+    padding-top: 20px;
+    font-size: 12px;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-legal a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-copyright {
+    color: #aaa;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+    
+    .hero-content, .hero-image {
+        width: 100%;
+    }
+    
+    .hero-content {
+        margin-bottom: 30px;
+    }
+    
+    .hero p {
+        margin: 0 auto;
+    }
+    
+    header {
+        padding: 15px 20px;
+    }
+    
+    nav a {
+        margin: 0 8px;
+        font-size: 14px;
+    }
+    
+    .footer-top {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .footer-links {
+        flex-wrap: wrap;
+    }
+}
+
+
+
+/* debuts de css de M
+
+/* Conteneur principal */
+.container {
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+}
+
+/* Titre */
+h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+
+/* Effet de vagues */
+.wave-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.wave {
+    width: 8px;
+    height: 30px;
+    margin: 0 5px;
+    background: #00ffea;
+    border-radius: 10px;
+    animation: wave-animation 1.5s infinite ease-in-out;
+    opacity: 0.8;
+}
+
+.wave:nth-child(1) { animation-delay: 0s; }
+.wave:nth-child(2) { animation-delay: 0.2s; }
+.wave:nth-child(3) { animation-delay: 0.4s; }
+.wave:nth-child(4) { animation-delay: 0.6s; }
+.wave:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes wave-animation {
+    0%, 100% { height: 20px; }
+    50% { height: 50px; }
+}
+
+/* Boutons */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+button {
+    background: #00ffea;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 255, 234, 0.3);
+}
+
+button:disabled {
+    background: gray;
+    cursor: not-allowed;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* Nouveau bouton stop */
+button.stop {
+    background: #ff4c4c;
+    color: white;
+    box-shadow: 0 4px 10px rgba(255, 76, 76, 0.3);
+}
+
+button.stop:hover {
+    transform: scale(1.1);
+    background: #ff1c1c;
+}
+
+/* Nouveau bouton envoyer */
+button.envoyer {
+    background: #4caf50;
+    color: white;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+}
+
+button.envoyer:hover {
+    transform: scale(1.1);
+    background: #388e3c;
+}
+
+/* Zone de transcription */
+.transcription {
+    min-height: 50px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    word-wrap: break-word;
+}
+
+/* Permet le scroll uniquement dans la zone de transcription */
+.transcription {
+    max-height: 150px;
+    overflow-y: auto;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000;
+    word-wrap: break-word;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(21, 6, 6, 0.5) transparent;
+}
+
+/* Style de la barre de défilement pour Chrome et Edge */
+.transcription::-webkit-scrollbar {
+    width: 6px;
+}
+
+.transcription::-webkit-scrollbar-thumb {
+    background-color: rgba(22, 4, 4, 0.5);
+    border-radius: 10px;
+}
+
+
+
+/* Container styling and centering */
+.container {
+    max-width: 800px;
+    margin: 50px auto; /* Top and bottom margin of 50px, auto left and right for centering */
+    text-align: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Heading styles */
+  h1 {
+    color: #333;
+    margin-bottom: 25px;
+  }
+  
+  /* Wave container styling */
+  .wave-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    margin: 20px 0;
+  }
+  
+  
+  @keyframes wave {
+    0%, 100% {
+      height: 20px;
+    }
+    50% {
+      height: 40px;
+    }
+  }
+  
+  /* Controls styling */
+  .controls {
+    margin: 25px 0;
+  }
+  
+
+  button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  /* Transcription area */
+  .transcription {
+    min-height: 100px;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 5px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }

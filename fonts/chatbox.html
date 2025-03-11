@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milié - Exprimez-vous en un instant</title>
+    <link rel="stylesheet" href="/css/chat.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Miliê.</div>
+        <nav>
+            <a href="accueil.html">Accueil</a>
+            <a href="#">A propos de nous</a>
+            <a href="#">Témoignages</a>
+            <a href="index.html">ChatLydia</a>
+            <a href="#" class="inscription-btn">Inscription</a>
+            <div class="profile-icon"></div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Exprimez-vous en un instant !</h1>
+            <p>Laissez vos préoccupations en un message audio et recevez une réponse personnalisée. Votre voix compte !</p>
+        </div>
+        <div class="hero-image">
+            <img src="/assets/3497658.jpg" alt="Illustration d'une personne parlant à un téléphone avec microphone">
+        </div>
+    </section>
+
+
+    
+    <!-- Conteneur principal du transcripteur -->
+    <div class="container">
+        <h1>Assistant Vocal MILIE</h1>
+        <div class="wave-container">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+
+         <!-- Boutons de contrôle -->
+         <div class="controls">
+            <button id="startBtn">🎤 Démarrer</button>
+            <button id="stopBtn" disabled>🛑 Arrêter</button>
+            <button id="sendBtn" disabled>📤 Envoyer</button>
+        </div>
+
+        <div id="transcription" class="transcription"></div>
+    </div>
+
+
+
+    <!-- Email Pitch Section -->
+    <section class="email-pitch">
+        <h2>Posez votre question et recevez une réponse instantanée directement par mail ! 🚀</h2>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form">
+        <form>
+            <div class="form-group">
+                <input type="email" placeholder="Entrez votre adresse email*" required>
+            </div>
+            <div class="form-group">
+                <textarea placeholder="Entrez votre message*" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="submit-btn">ENVOYER</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-logo">Milié.</div>
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Careers</a>
+                <a href="#">Press</a>
+                <a href="#">Customer Care</a>
+                <a href="#">Services</a>
+            </div>
+            <div class="footer-newsletter">
+                <p>Get the freshest news from us</p>
+                <form>
+                    <input type="email" placeholder="Your email address...">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-legal">
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Legal</a>
+            </div>
+            <div class="footer-copyright">
+                Design with love by BrandBuilder. 2023 all right reserved
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="/script.js"></script>
+</body>
+</html>

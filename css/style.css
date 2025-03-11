@@ -112,6 +112,30 @@ button:hover {
     transform: scale(1.1);
 }
 
+/* Nouveau bouton stop */
+button.stop {
+    background: #ff4c4c;
+    color: white;
+    box-shadow: 0 4px 10px rgba(255, 76, 76, 0.3);
+}
+
+button.stop:hover {
+    transform: scale(1.1);
+    background: #ff1c1c;
+}
+
+/* Nouveau bouton envoyer */
+button.envoyer {
+    background: #4caf50;
+    color: white;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+}
+
+button.envoyer:hover {
+    transform: scale(1.1);
+    background: #388e3c;
+}
+
 /* Zone de transcription */
 .transcription {
     min-height: 50px;
