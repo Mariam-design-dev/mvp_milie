@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcription en Temps Réel</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- Logo centré en haut de la page -->
+    <div class="logo">
+        <img src="/assets/logo_osep.png" alt="Logo MILIE">
+    </div>
+
+    <!-- Conteneur principal du transcripteur -->
+    <div class="container">
+        <h1>Assistant Vocal MILIE</h1>
+        <div class="wave-container">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+
+         <!-- Boutons de contrôle -->
+         <div class="controls">
+            <button id="startBtn">🎤 Démarrer</button>
+            <button id="stopBtn" disabled>🛑 Arrêter</button>
+            <button id="sendBtn" disabled>📤 Envoyer</button>
+        </div>
+
+        <div id="transcription" class="transcription"></div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

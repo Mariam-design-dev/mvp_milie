@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Open index.html",
-            "file": "/Users/futurafric/bot2023/index.html"
+            "file": "http://127.0.0.1:5500/fonts/index.html"
         }
     ]
 }
