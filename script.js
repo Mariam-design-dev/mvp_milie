@@ -1,6 +1,7 @@
 const startBtn = document.getElementById('startBtn');
 const stopBtn = document.getElementById('stopBtn');
 const sendBtn = document.getElementById('sendBtn');
+const viewBtn = document.getElementById('viewBtn');
 const transcriptionDiv = document.getElementById('transcription');
 const waves = document.querySelectorAll('.wave');
 
@@ -24,8 +25,8 @@ async function sendTranscriptionToBackend() {
 
     const data = {
         message: finalTranscript.trim(),
-        objet: "Transcription vocale", // Optionnel, peut être modifié via une entrée utilisateur
-        entite_etatique: "Non spécifié" // Optionnel, peut être modifié si besoin
+        objet: "Transcription vocale",
+        entite_etatique: "Non spécifié"
     };
 
     try {
@@ -39,18 +40,23 @@ async function sendTranscriptionToBackend() {
 
         const result = await response.json();
         if (response.ok) {
-            alert(result.message); // "Transcription sauvegardée avec succès."
-            transcriptionDiv.textContent = ""; // Effacer après succès
+            alert(result.message);
+            transcriptionDiv.textContent = "";
             finalTranscript = "";
-            sendBtn.disabled = true; // Désactiver après envoi
+            sendBtn.disabled = true;
         } else {
             alert(`Erreur : ${result.message}`);
         }
     } catch (error) {
         console.error("Erreur lors de l'envoi au backend :", error);
-        alert("Erreur de connexion au serveur. Vérifiez que le backend est en marche.");
+        alert("Erreur de connexion au serveur.");
     }
 }
+
+// Redirection vers la page des requêtes
+viewBtn.addEventListener('click', () => {
+    window.location.href = '/fonts/bd_requetes.html';
+});
 
 // Démarrer la reconnaissance vocale
 startBtn.addEventListener('click', () => {
@@ -58,7 +64,7 @@ startBtn.addEventListener('click', () => {
     isRecording = true;
     startBtn.disabled = true;
     stopBtn.disabled = false;
-    sendBtn.disabled = true; // Désactiver "Envoyer" au démarrage
+    sendBtn.disabled = true;
     animateWave(true);
     startRecognition();
 });
@@ -73,7 +79,7 @@ stopBtn.addEventListener('click', () => {
         recognition.stop();
     }
     animateWave(false);
-    sendBtn.disabled = finalTranscript.trim() === ""; // Activer "Envoyer" si transcription existe
+    sendBtn.disabled = finalTranscript.trim() === "";
 });
 
 // Envoyer la transcription au backend
@@ -105,18 +111,17 @@ function startRecognition() {
             }
         }
 
-        // Ajouter uniquement les nouvelles phrases sans duplication
         if (newFinalTranscript.trim() && !finalTranscript.endsWith(newFinalTranscript.trim())) {
             finalTranscript += newFinalTranscript;
         }
 
         transcriptionDiv.textContent = finalTranscript + interimTranscript;
-        sendBtn.disabled = finalTranscript.trim() === ""; // Activer/désactiver "Envoyer"
+        sendBtn.disabled = finalTranscript.trim() === "";
     };
 
     recognition.onend = () => {
         if (isRecording) {
-            recognition.start(); // Redémarrer automatiquement si l'enregistrement est actif
+            recognition.start();
         }
     };
 

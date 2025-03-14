@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Base de données des requêtes</title>
+    <link rel="stylesheet" href="/css/style1.css">
+    <link rel="stylesheet" href="/css/chat.css">
+    <style>
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            margin: 10px;
+            padding: 5px 10px;
+        }
+       
+    </style>
+</head>
+<body>
+
+     <!-- Header -->
+     <header>
+        <div class="logo">Miliê.</div>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="#">A propos de nous</a>
+            <a href="">Témoignages</a>
+            <a href="chatbox.html">ChatLydia</a>
+            <a href="#" class="inscription-btn">Inscription</a>
+            <div class="profile-icon"></div>
+        </nav>
+    </header>
+
+
+
+     <!-- Hero Section -->
+     <section class="hero">
+        <div class="hero-content">
+            <h1>Classification !</h1>
+            <p>Laissez vos préoccupations en un message audio et recevez une réponse personnalisée. Votre voix compte !</p>
+        </div>
+        <div class="hero-image">
+            <img src="/assets/3497658.jpg" alt="Illustration d'une personne parlant à un téléphone avec microphone">
+        </div>
+    </section>
+    <button onclick="window.location.href='chatbox.html'">Retour</button>
+    <table id="transcriptionsTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Date & Heure</th>
+                <th>Type de requête</th>
+                <th>Requête</th>
+                <th>Entité étatique</th>
+            </tr>
+        </thead>
+        <tbody id="transcriptionsBody"></tbody>
+    </table>
+
+    <script>
+        // Charger les transcriptions au démarrage de la page
+        async function loadTranscriptions() {
+            try {
+                const response = await fetch('http://localhost:5000/get_transcriptions', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const result = await response.json();
+                const tbody = document.getElementById('transcriptionsBody');
+
+                if (response.ok) {
+                    if (result.transcriptions.length === 0) {
+                        tbody.innerHTML = '<tr><td colspan="5">Aucune requête enregistrée.</td></tr>';
+                    } else {
+                        result.transcriptions.forEach(trans => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${trans.id}</td>
+                                <td>${trans.date}</td>
+                                <td>${trans.type_requete}</td>
+                                <td>${trans.requete}</td>
+                                <td>${trans.entite_etatique}</td>
+                            `;
+                            tbody.appendChild(row);
+                        });
+                    }
+                } else {
+                    alert(`Erreur : ${result.message}`);
+                }
+            } catch (error) {
+                console.error("Erreur lors de la récupération des requêtes :", error);
+                alert("Erreur de connexion au serveur.");
+            }
+        }
+
+        // Charger les requêtes quand la page est prête
+        document.addEventListener('DOMContentLoaded', loadTranscriptions);
+    </script>
+</body>
+</html>
